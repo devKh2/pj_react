@@ -11,3 +11,5 @@ npm install --save-dev babel-loader
 이렇게 해준 후, webpack.config.js 열고 module.loaders.loader 부분을 babel-loader로 수정해주니 해결 되었어요.
 
 같은 에러가 뜨시는 분은 참고하시면 될듯 해요.﻿
+
+오키요
