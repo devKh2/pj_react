@@ -12,4 +12,6 @@ npm install --save-dev babel-loader
 
 같은 에러가 뜨시는 분은 참고하시면 될듯 해요.﻿
 
-오키요
+-- react 실행
+$cd C:\Users\hyunho-kim's PC\Desktop\react_project
+$npm run dev-server

@@ -1,11 +1,14 @@
 import React from 'react';
 import ContactInfo from './ContactInfo.js';
+import ContactDetails from './ContactDetails.js';
+import update from 'react-addons-update';
 
 export default class Contact extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            selectedKey: -1,
             keyword: '',
             contactData: [{
                 name: 'Abet',
@@ -24,6 +27,7 @@ export default class Contact extends React.Component {
         console.log('a');
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     handleChange(e){
@@ -32,10 +36,28 @@ export default class Contact extends React.Component {
       });
     }
 
+    handleClick(key){
+      this.setState({
+        selectedKey: key
+      });
+
+      console.log(key, 'is selected');
+    }
+
+
     render() {
         const mapToComponents = (data) => {
+            data.sort();
+            data = data.filter(
+              (contact) => {
+                return contact.name.toLowerCase().indexOf(this.state.keyword) > -1;
+              }
+            )
             return data.map((contact, i) => {
-                return (<ContactInfo contact={contact} key={i}/>);
+                return (<ContactInfo
+                            contact={contact}
+                            key={i}
+                            onClick={() => this.handleClick(i)}/>);
             });
         };
 
@@ -45,8 +67,12 @@ export default class Contact extends React.Component {
                 <input  name="keyword"
                         placeholder="Search"
                         value={this.state.keyword}
-                        onChange="{this.handleChange}"/>
+                        onChange={this.handleChange}/>
                 <div>{mapToComponents(this.state.contactData)}</div>
+                <ContactDetails
+                    isSelected={this.state.selectedKey != -1}
+                    contact={this.state.contactData[this.state.selectedKey]}
+                />
             </div>
         );
     }
