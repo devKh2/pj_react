@@ -14,6 +14,7 @@ npm install --save-dev babel-loader
 
 -- react 실행
 $cd C:\Users\hyunho-kim's PC\Desktop\react_project
+$cd D:\dev\pj_react_home
 $npm run dev-server
 
 -- atom edit: git-control 사용
