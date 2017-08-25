@@ -1,3 +1,9 @@
+-강의문서
+http://slides.com/minjunkim-1/deck#/13/1
+
+-강의영상
+https://www.youtube.com/watch?v=48ZtoaWIL_Y&list=PL9FpF_z-xR_GMujql3S_XGV2SpdfDBkeC&index=10#t=9.457466
+
 npm install -g webpack webpack-dev-server
 npm init
 npm install --save react-dom
@@ -18,3 +24,13 @@ $cd D:\dev\pj_react_home
 $npm run dev-server
 
 -- atom edit: git-control 사용
+
+
+-- 유용한 package
+Seti UI : Backbone.js 의 제작자 Addy Osmani 도 추천하는 코드 테마. 색깔 조합이 수려해서, 개인적으로 코딩할 때 질리지 않는 colorful 한 테마다
+Beautify : 들여쓰기나 코드 간격이 일정하지 않은 복잡한 코드를 보기 좋게 정리해준다.
+Pigments : CSS 파일의 #FF530D 형태의 컬러 값을 직관적으로 표시해준다.
+Color Picker : CSS 스타일 작성시 색상 팔레트를 에디팅 위에서 볼 수 있어 쉽게 변경할 수 있다.
+Auto close HTML : HTML 태그 이름만 입력하면 시작 및 종료 태그를 알아서 붙여준다.
+Code peek : 선택한 함수가 정의되어 있는 파일을 자동으로 열어 대조해준다. (이클립스의 Alt+마우스 왼쪽 클릭 과 동일한 기능)
+Fuzzy Finder : 단축키 Ctrl-T 나 Cmd-T 로 파일을 쉽게 찾고 연다.
