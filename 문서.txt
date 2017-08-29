@@ -34,3 +34,19 @@ Color Picker : CSS 스타일 작성시 색상 팔레트를 에디팅 위에서 �
 Auto close HTML : HTML 태그 이름만 입력하면 시작 및 종료 태그를 알아서 붙여준다.
 Code peek : 선택한 함수가 정의되어 있는 파일을 자동으로 열어 대조해준다. (이클립스의 Alt+마우스 왼쪽 클릭 과 동일한 기능)
 Fuzzy Finder : 단축키 Ctrl-T 나 Cmd-T 로 파일을 쉽게 찾고 연다.
+
+
+
+-- Component LifeCycle API
+constructor : 생성자 메소드로서 컴포넌트가 처음 만들어 질 때 실행됩니다.이 메소드에서 기본 state 를 정할 수 있습니다.
+componentWillMount : 컴포넌트가 DOM 위에 만들어지기 전에 실행됩니다.
+render : 컴포넌트 렌더링을 담당합니다.
+componentDidMount : 컴포넌트가 만들어지고 첫 렌더링을 다 마친 후 실행되는 메소드입니다.
+                  이 안에서 다른 JavaScript 프레임워크를 연동하거나, setTimeout, setInterval 및 AJAX 처리 등을 넣습니다.
+componentWillReceiveProps : 컴포넌트가 prop 을 새로 받았을 때 실행됩니다.
+                            prop 에 따라 state 를 업데이트 해야 할 때 사용하면 유용합니다.
+                            이 안에서 this.setState() 를 해도 추가적으로 렌더링하지 않습니다.
+shouldComponentUpdate : prop 혹은 state 가 변경 되었을 때, 리렌더링을 할지 말지 정하는 메소드입니다.
+componentWillUpdate : 컴포넌트가 업데이트 되기 전에 실행됩니다. 이 메소드 안에서는 this.setState() 를 사용하지 마세요
+componentDidUpdate : 컴포넌트가 리렌더링을 마친 후 실행됩니다.
+componentWillUnmount : 컴포넌트가 DOM 에서 사라진 후 실행되는 메소드입니다.
