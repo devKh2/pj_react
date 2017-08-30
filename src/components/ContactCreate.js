@@ -4,8 +4,8 @@ export default class ContactCreate extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-        name: ''
-      , phone: ''
+        name: '',
+        phone: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -16,20 +16,20 @@ export default class ContactCreate extends React.Component {
   handleChange(e){
     let nextState = {};
     nextState[e.target.name] = e.target.value;
-    this.setState(nextState)
+    this.setState(nextState);
   }
 
   handleClick(){
     const contact = {
-        name: this.state.name
-      , phone: this.state.phone
+        name: this.state.name,
+        phone: this.state.phone
     };
 
     this.props.onCreate(contact);
 
     this.setState({
-        name: ''
-      , phone: ''
+        name: '',
+        phone: ''
     });
 
     this.nameInput.focus();
@@ -46,12 +46,12 @@ export default class ContactCreate extends React.Component {
       <div>
         <h2>Create Contact</h2>
         <p>
-          <input type="text" name="name" ref={(ref) =>{this.nameInput = ref}} placeholder="name" value={this.state.name} onChange={this.handleChange}/>
+          <input type="text" name="name" ref={(ref) =>{this.nameInput = ref;}} placeholder="name" value={this.state.name} onChange={this.handleChange}/>
           <input type="text" name="phone" placeholder="phone"  value={this.state.phone}  onChange={this.handleChange} onKeyPress={this.handleKeyPress}/>
         </p>
         <button onClick={this.handleClick}>Create</button>
       </div>
-    )
+    );
   }
 }
 
@@ -62,4 +62,4 @@ ContactCreate.porpTypes = {
 
 ContactCreate.defaultProps = {
   onCreate: () => {console.error('onCreate not defined');}
-}
+};

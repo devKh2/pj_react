@@ -37,16 +37,16 @@ export default class Contact extends React.Component {
 
     componentWillMount(){
       const contactData = localStorage.contactData;
-      console.log('JSON.parse(contactData) 처리 안됨')
+      console.log('JSON.parse(contactData) 처리 안됨');
       // if(contactData){
       //   this.setState({
       //     contactData : JSON.parse(contactData)
-      //   })
+      //   });
       // }
     }
 
     componentDidUpdate(prevProps, prevState){
-      console.log('componentDidUpdate Call')
+      console.log('componentDidUpdate Call');
       // if(JSON.stringify(prevState.contactData) != JSON.stringify(this.state.contactData)){
       //   localStorage.contactData =JSON.stringify(this.state.contataData);
       // }
@@ -56,7 +56,7 @@ export default class Contact extends React.Component {
       this.setState({
         keyword: e.target.value
       });
-    };
+    }
 
     handleClick(key){
       this.setState({
@@ -64,13 +64,13 @@ export default class Contact extends React.Component {
       });
 
       console.log(key, 'is selected');
-    };
+    }
 
     handleCreate(contact){
       this.setState({
           contactData : update(this.state.contactData, {$push: [contact]})
       });
-    };
+    }
 
     handleRemove(){
       if(this.state.selectedKey <0){
@@ -80,19 +80,19 @@ export default class Contact extends React.Component {
       this.setState({
         contactData : update(this.state.contactData, {$splice: [[this.state.selectedKey, 1]]}), selectedKey: -1
       });
-    };
+    }
 
     handleEdit(name, phone){
       this.setState({
         contactData: update(this.state.contactData,
           {
             [this.state.selectedKey]: {
-              name: {$set: name}
-            , phone: {$set: phone}
+              name: {$set: name},
+              phone: {$set: phone}
             }
         })
-      })
-    };
+      });
+    }
 
 
     render() {
@@ -100,24 +100,22 @@ export default class Contact extends React.Component {
             data.sort();
             data = data.filter(
               (contact) => {
-                return contact.name.toLowerCase().indexOf(this.state.keyword) > -1;
+                return contact.name.toLowerCase().indexOf(this.state.keyword.toLowerCase()) > -1;
               }
-            )
+            );
+
             return data.map((contact, i) => {
                 return (<ContactInfo
                             contact={contact}
                             key={i}
-                            onClick={() => this.handleClick(i)}/>);
+                            onClick={() => this.handleClick(contact.id)}/>);
             });
         };
 
         return (
             <div>
                 <h1>Contacts</h1>
-                <input  name="keyword"
-                        placeholder="Search"
-                        value={this.state.keyword}
-                        onChange={this.handleChange}/>
+                <input name="keyword" placeholder="Search" value={this.state.keyword} onChange={this.handleChange}/>
                 <div>{mapToComponents(this.state.contactData)}</div>
                 <ContactDetails
                     isSelected={this.state.selectedKey != -1}

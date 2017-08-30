@@ -5,9 +5,9 @@ export default class ContactDetails extends React.Component {
     super(props);
 
     this.state = {
-        isEdit: false
-      , name: ''
-      , phone: ''
+       isEdit: false,
+       name: '',
+       phone: ''
     };
 
     this.hnadleToggle = this.hnadleToggle.bind(this);
@@ -34,7 +34,7 @@ export default class ContactDetails extends React.Component {
   handleChange(e){
     let nextState = {};
     nextState[e.target.name] = e.target.value;
-    this.setState(nextState)
+    this.setState(nextState);
   }
 
   handleEdit(){
@@ -89,8 +89,8 @@ export default class ContactDetails extends React.Component {
 
 ContactDetails.defaultProps = {
     contact: {
-        name : ''
-      , phone : ''
+      name : '',
+      phone : ''
     },
     onRemove: () => { console.error('onRemove not defined');},
     onEdit: () => { console.error('onEdit not defined');}
@@ -100,4 +100,4 @@ ContactDetails.propTypes = {
   contact : React.PropTypes.object,
   onRemove : React.PropTypes.func,
   onEdit : React.PropTypes.func
-}
+};
